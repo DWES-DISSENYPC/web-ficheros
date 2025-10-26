@@ -2,9 +2,15 @@ package com.ejemplo.modelo;
 
 public class Usuario {
     private final String usuario;
-    private final String contrasenya;
+    private final String contraseña;
 
-    public Usuario ()
+    public Usuario (String usuario, String contraseña) {
 
-    public String getNombre() { return nombre; }
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+
+    }
+
+    public String getNombre() { return usuario; }
+    public String getContraseña() { return contraseña;}
 }

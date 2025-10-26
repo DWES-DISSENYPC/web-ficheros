@@ -2,9 +2,11 @@ package com.ejemplo.web;
 
 import com.ejemplo.config.ThymeleafConfig;
 import com.ejemplo.modelo.Usuario;
+import com.ejemplo.services.GestionFicherosService;
 import com.ejemplo.view.ViewEngine;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
 
+@MultipartConfig
 @WebServlet("/registro")
 public class RegistroServlet extends HttpServlet {
 
@@ -43,10 +46,10 @@ public class RegistroServlet extends HttpServlet {
         IWebExchange exchange = this.app.buildExchange(req, resp);
         WebContext ctx = new WebContext(exchange, exchange.getLocale());
         ctx.setVariable("usuario", u);
-
+ 
         String mensaje = "";
         
-        boolean fichero_ok = true; // Cambiar para que dependa de algún método de GestiónFicherosService
+        boolean fichero_ok = GestionFicherosService.toMayus(req); 
 
         mensaje = fichero_ok ? "Se ha enviado el fichero correctamente" : "Error con el fichero";
         ctx.setVariable("msj", mensaje);

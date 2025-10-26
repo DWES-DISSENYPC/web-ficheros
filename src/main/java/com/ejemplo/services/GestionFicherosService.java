@@ -19,7 +19,7 @@ public class GestionFicherosService {
             String nombreUsuario = req.getParameter("usuario");
             Path directorioUsuario = directorioBase.resolve(nombreUsuario);
 
-            if(!Files.isDirectory(directorioUsuario)) Files.createDirectories(directorioUsuario)
+            if(!Files.isDirectory(directorioUsuario)) Files.createDirectories(directorioUsuario);
 
             String nombreFichero = Paths.get(fichero.getSubmittedFileName()).getFileName().toString();
             if(!nombreFichero.endsWith(".txt")) return false;
@@ -43,10 +43,12 @@ public class GestionFicherosService {
         } catch(IOException e){
 
             System.out.println("Error de lectura/escritura");
+            return false;
 
         } catch (ServletException e) {
 
             System.out.println("Error del servidor");
+            return false;
         }
 
         return true;
