@@ -39,7 +39,7 @@ public class RegistroServlet extends HttpServlet {
 
         Usuario u = new Usuario(
                 req.getParameter("usuario"),
-                req.getParameter("contrasenya")
+                req.getParameter("contraseña")
                
         );
 
