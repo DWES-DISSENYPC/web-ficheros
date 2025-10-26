@@ -1,0 +1,20 @@
+# Ignorar la carpeta de build de Maven
+/target/
+
+# Logs y archivos de IDE (VS Code, Eclipse, IntelliJ)
+*.log
+.DS_Store # Mac (lo incluyo por si acaso)
+.idea/
+.vscode/
+*.iml
+.settings/
+
+# Archivos de empaquetado (WAR/JAR)
+*.war
+*.jar
+
+# Archivos de clase de Java
+*.class
+
+# Dependencias de Maven
+/m2
